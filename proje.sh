@@ -8,7 +8,7 @@ SQL_TABLO="table"
 
 while true; do
     TARIH=$(date)
-    DEGISIKLIKLER=$(inotifywait -e modify,move,create,delete --format'%w&f%e' -r $DIZIN)
+    DEGISIKLIKLER=$(inotifywait -e modify,move,create,delete --format '%w&f%e' -r $DIZIN)
     if [ ! -z "$DEGISIKLIKLER" ]; then
         psql -d "$SQL_AD" -U "$SQL_KULLANICI" -c "INSERT INTO $SQL_TABLO(event) VALUES ('TARIH $DEGISIKLIKLER');"
 
