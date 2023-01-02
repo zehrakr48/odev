@@ -12,7 +12,7 @@ while true; do
     if [! -z "$DEGİSİKLİKLER"]; then
         psql -d "$SQL_AD" -U "$SQL_KULLANICI" -c "INSERT INTO $SQL_TABLO(event) VALUES ('TARIH $DEGISIKLIKLER');"
 
-        echo $TARIH$DEGISIKLIKLER >>/home/projeKayit.txt
+        echo $TARIH $DEGISIKLIKLER >>/home/zehra/Masaüstü/projeKayit.txt
     fi
     sleep 5
 done
